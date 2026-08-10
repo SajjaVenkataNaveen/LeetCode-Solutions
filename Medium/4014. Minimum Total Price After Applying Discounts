@@ -1,0 +1,20 @@
+class Solution {
+public:
+    double minPrice(vector<int>& prices, vector<int>& discounts) {
+        double final=0;
+        sort(prices.begin(),prices.end(),greater<int>());
+        sort(discounts.begin(),discounts.end(),greater<int>());
+        int n1 = prices.size();
+        int n2 = discounts.size();
+
+        for(int i=0;i<n1;i++){
+            int d = 0;
+            if(i<discounts.size()){
+                d=discounts[i];
+            }
+            final += prices[i] * (100.0 - d) / 100.0;
+        }
+
+        return final;
+    }
+};
