@@ -1,0 +1,57 @@
+#include <climits>
+#include <cstdlib>
+
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+
+        if (dividend == INT_MIN && divisor == -1) {
+            return INT_MAX;
+        }
+        if(dividend == 2147483647 && divisor == -1){
+                return -2147483647;
+        }
+
+        long long cnt = 0;
+
+        long long dvd = dividend;
+        long long dvs = divisor;
+
+        if ((dvd > 0) && (dvs > 0)) {
+            while (!(dvd < dvs)) {
+                dvd = dvd - dvs;
+                cnt++;
+            }
+            return (int)cnt;
+        }
+
+        if ((dvd < 0 && dvs > 0) ||
+            (dvd > 0 && dvs < 0)) {
+
+            dvd = llabs(dvd);
+            dvs = llabs(dvs);
+
+            while (!(dvd < dvs)) {
+                dvd = dvd - dvs;
+                cnt++;
+            }
+
+            return (int)(-cnt);
+        }
+
+        if ((dvd < 0) && (dvs < 0)) {
+
+            dvd = llabs(dvd);
+            dvs = llabs(dvs);
+
+            while (!(dvd < dvs)) {
+                dvd = dvd - dvs;
+                cnt++;
+            }
+
+            return (int)cnt;
+        }
+
+        return (int)cnt;
+    }
+};
