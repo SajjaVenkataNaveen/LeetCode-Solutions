@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int minOperations(string s) {
+        int n = s.size();
+        int ans = 1e9;
+
+        for(int r=0;r<n;r++){
+            int cost = r;
+
+            for(int i=0;i<n/2;i++){
+                char a= s[(i+r)%n];
+                char b = s[(n-1-i+r)%n];
+
+                int x = abs(a-b);
+                cost = cost+min(x,26-x);
+            }
+
+            ans = min(ans,cost);
+        }
+
+        return ans;
+    }
+};
