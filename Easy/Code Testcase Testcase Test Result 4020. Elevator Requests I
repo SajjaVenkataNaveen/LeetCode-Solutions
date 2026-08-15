@@ -1,7 +1,0 @@
-int elevatorRequests(int n, int* requests, int requestsSize) {
-    int ans = requests[0];
-    for(int i=0;i<requestsSize-1;i++){
-        ans = ans + abs(requests[i]-requests[i+1]);
-    }
-    return ans;
-}
