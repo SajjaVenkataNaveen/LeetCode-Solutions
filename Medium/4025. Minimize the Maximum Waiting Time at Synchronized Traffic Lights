@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int minPenalty(int period, vector<int>& lights, vector<int>& arrivalTime) {
+        int ans =0;
+
+        int maxgreen = 0;
+        for(int x: lights){
+            maxgreen = max(maxgreen,x);
+        }
+
+        for(int t : arrivalTime){
+            int r=t%period;
+
+                int wait=0;
+                if(r>=maxgreen){
+                    wait = period - r;
+                }
+                ans = max(ans,wait);
+        }
+            
+        
+
+        return ans;
+    }
+};
