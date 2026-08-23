@@ -1,0 +1,14 @@
+class Solution {
+public:
+    bool isPalindromic(string s) {
+        string bin = "";
+        for(char c:s){
+            bitset<8> b(c);
+            bin +=b.to_string();
+        }
+
+        string rev = bin;
+        reverse(rev.begin(),rev.end());
+        return rev==bin;
+    }
+};
