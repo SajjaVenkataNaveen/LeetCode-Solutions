@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> numberGame(vector<int>& nums) {
+        vector<int> arr;
+
+        while(!nums.empty()) {
+
+            auto it = min_element(nums.begin(), nums.end());
+            int alice = *it;
+            nums.erase(it);
+
+            it = min_element(nums.begin(), nums.end());
+            int bob = *it;
+            nums.erase(it);
+
+            arr.push_back(bob);
+            arr.push_back(alice);
+        }
+
+        return arr;
+    }
+};
