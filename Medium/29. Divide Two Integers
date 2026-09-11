@@ -1,3 +1,4 @@
+//BRUTE FORCE METHOD
 #include <climits>
 #include <cstdlib>
 
